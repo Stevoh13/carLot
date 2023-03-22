@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StevyLOT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="menu">
+                <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#about-section">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/cars">Cars</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Search here">
+                <a href="#"><button class="btn">Search</button></a>
+            </div>
+        </div>
+
+        <!-- Logo Section ................................................................-->
+        <div class="content">
+            <h1>Stevy<span>-LOT</span></h1>
+            <p class="par">Stevy-LOT is the smart solution for day to day parking hassle in urban areas like Lagos, Abuja, Port Harcourt, etc.<br>
+                On weekdays It’s not easy to find a parking in Lagos, Stevy-LOT has included more than 500+ parking spots, so as to control traffic within Lagos State.<br>
+                This application shows all the Stevy-LOTs available within your location in Lagos.</p>
+                 <button class="cn"><a href="/login">Join Us</a></button>
+        </div>
+    </div>
+
+     <!-- About Section ...................................................................-->
+     <section id="about-section">
+        <div class="about-section">
+            <div class="about">
+                <h3 class="ab">About Us</h3>
+                <p class="cy">
+                    Stevy-LOT is the smart solution for day to day parking hassle in urban areas like Lagos, Abuja, Port Harcourt, etc. <br>
+                    On weekdays It’s not easy to find a parking in Lagos, Stevy-LOT has included more than 500+ parking spots, so as to control traffic within Lagos State. <br>
+                    This application shows all the Stevy-LOTs available within your location in Lagos.<br>                    
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- #SERVICES SECTION ..................................................................-->
+    <section id="services">
+        <div class="services-container">
+            <div class="services-title">
+                    <h4 class="serv">Our Services</h4>
+                    <p>Stevy-LOT offers the following services:</p>
+                    <p class="ss">Auto Body. <br>
+                        Air Conditioning Servicing. <br>
+                        Electrical Repairs. <br>
+                        Maintenance Services. <br>
+                        Wheel Alignment.</p>
+            </div>
+
+            <div class="my-services">
+                <div class="service">
+                    <img class="service-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSnwpulpIYUojbTa_y4LBouKkC1XUZ0NAzuw&usqp=CAU" alt="">
+                    <div class="front">
+                        <p class="pp">Car Wash</p>
+                        <p>I create websites and applications using web languages such as HTML, CSS, and JavaScript.</p>
+                    </div>
+                </div>
+
+                <div class="service">
+                    <img class="service-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbQqJsbvACSmWSDMWR_AZY8of0JLZlCoD_hg&usqp=CAU" alt="">
+                    <div class="front">
+                        <p class="pp">Servicing & Repair</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+
+                <div class="service">
+                    <img class="service-img" src="https://media.istockphoto.com/id/1054374826/photo/car-steering-wheel-balancer-calibration.jpg?b=1&s=170667a&w=0&k=20&c=CLKf4oQqyK5onWNywPEJ06SLQffEqOp8fQKPVQKJzCs=" alt="">
+                    <div class="front">
+                        <p class="pp">Wheel Alignment</p>
+                        <p>I create websites and applications using necessary Tool, Framework and Database such as Javascript, Node.js, MongoDB.</p>
+                    </div>
+                </div>
+
+                <div class="service">
+                    <img class="service-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSnwpulpIYUojbTa_y4LBouKkC1XUZ0NAzuw&usqp=CAU" alt="">
+                    <div class="front">
+                        <p class="pp">Maintenance Services</p>
+                        <p>I create websites and applications using web languages such as HTML, CSS, and JavaScript that allow users to access and interact with the site or app.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <section id="cars">
+            <div class="carz">
+                <form action="/cars" method="POST">
+
+                <label class="ll" for="imgUrl">Image:</label>
+                <input class="ll" type="file" name="imgUrl" required>
+                <br>
+    
+                <label class="ll" for="carcolor">Color:</label>
+                <input type="text" name="color" required>
+                <br>
+    
+                <label for="carbrand">Car Brand:</label>
+                <input type="text" name="brand" required>
+                <br>
+    
+                <label class="ll" for="carreg_num">Registration Number</label>
+                <input class="ll" type="number" name="reg_num" required>
+                <br>
+                
+                <label class="ll" for="caryear">Year:</label>
+                <input type="text" name="year" required>
+                <br>
+    
+                <label class="ll" for="model">Model:</label>
+                <input type="text" name="model" required>
+                <br>
+    
+                <label class="ll" for="cartransmission">Transmission:</label>
+                <input type="text" name="transmission" required>
+                <br>
+    
+                <label class="ll" for="carbodystyle">Bodystyle:</label>
+                <input type="text" name="bodystyle" required>
+                <br>
+    
+                <button class="bnn" type="submit">Create Car</button>
+            </div>
+        </form>
+
+        </section>
+    
+    
+<!-- footer section....................................................... -->
+<footer id="footer">
+    <div>
+        <marquee behavior="" direction="right-box">
+            <p>Copyright 2023 by Steven. All Rights Reserved.</p>
+        </marquee>
+    </div>
+</footer>
+</body>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="footer-bottom">
+        <img src="https://images.unsplash.com/photo-1621568670850-51b6a6c3e036?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="">
+        <p class="sss">All Right reserved by &copy;creativo 2023</p>
+    </div> -->
+    
+    <!-- <footer id="footer">
+        <div>
+            <marquee behavior="" direction="right-box">
+                <p>Copyright 2023 by Steven. All Rights Reserved.</p>
+            </marquee>
+        </div>
+    </footer> -->
+</body>
+</html>

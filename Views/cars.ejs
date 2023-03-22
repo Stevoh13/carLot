@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>rooms</title>
+  </head>
+  <body>
+      <!-- views/rooms/index.ejs -->
+    <h1>All Rooms</h1>
+    <ul>
+      <% cars.forEach((car) => { %>
+        <li class="image"><img src="<%= car.imgUrl %>" /></li>
+        <li class="title"><%= car.brand %></li>
+        <span class="price"><%= car.model %></span>
+        <span class="price"><%= car.color %></span>
+      <% }) %>
+    </ul>
+
+    <form action="/cars" id="uploadForm" method="POST" enctype="multipart/form-data">
+      <label for="carbrand">Car Brand:</label>
+      <input type="text" name="brand" required>
+      <br>
+      
+      <label for="carmodel">Car Model</label>
+      <input type="number" name="model" required>
+      <br>
+      
+      <label for="imgUrl">Image:</label>
+      <input type="file" name="imgUrl" required>
+      <br>
+      
+      <button type="submit">Create Car</button>
+    </form> 
+
+
+  </body>
+  <script>
+    const form = document.getElementById('uploadForm');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      fetch('/rooms', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.imgUrl);
+        // do something with the imgUrl, such as display the uploaded image
+      })
+      .catch(error => console.error(error));
+    });
+
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.11.0/cloudinary-core-shrinkwrap.min.js"></script>
+</html>

@@ -30,9 +30,14 @@ const OwnersSchema = new Schema({
         required: true
     },
 
-    carNum: {
-        type: '',
-        required: ''
+    phone: {
+        type: 'String',
+        required: true
+    },
+
+    cars: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'cars'
     },
 
     state: {

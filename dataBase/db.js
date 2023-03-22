@@ -4,18 +4,17 @@ require('dotenv').config();                         //import dotenv module
 const MONGODB_URI = process.env.MONGODB_URI;      //Load the MongooseDB URI from the environment variables
 
 function connectToMongoDB() {                   //Function to connect to MongoDB
-mongoose.connect(
-    MONGODB_URI,
-    {
-        dbName: "carLot",
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    },
+mongoose.connect(MONGODB_URI);
 
-    (err) =>
-        err ? console.log(err) : console.log(
-            "Connected to carLot database"),
-    )};
+    mongoose.connection.on('connected', () => {
+        console.log('Connected to MongoDB successfully');
+    });
+
+    mongoose.connection.on('error', (err) => {
+        console.log('Error connecting to MongoDB', err);
+     })
+
+};
    
 module.exports = {connectToMongoDB}             //Export the connectToMongoDB function
 

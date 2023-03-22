@@ -1,19 +1,61 @@
 const ownerModel = require('../models/owners');
 
-//GET USERs.................................................................................
-const getOwners  = (req,res)  => { 
-    ownerModel.find()                //using the the 'BookModel' to find all books
 
-    .then(owners  => {               //if query is successful, return JSON array of the books
+//Signup function.................................................................
+const signup  = async (req, res) => {
+    try {
+        const { email, password, username, phone } = req.body;
+        //Check if the user already exists
+        const existingUser = await URLSearchParams.findOne({email});
+        if (existingUser) {
+            return res.status(400).json({message: 'User already exists'});
+        }
+        //Create new user with username field
+        const user = new Users({ email, password, username, phone });
+        await user.save();
+        //Generate JWT
+        const token = jwt.sign({ userId: user._id}, process.evn.JWT_SECTRET);
+        res.status(201).json({ user, token });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error'})
+    }
+};
+
+//Login function.........................................................................
+const login = async (req, res, next) => {
+    passport.authentication('local', {session: false}, (err, user, info) => {
+        if (err) {
+            return next(err);
+        }
+        if(!user) {
+            return res.status(401).json({message: 'Invalid credentials'});
+        }
+        //Generate JWT
+        const token = jwt.sign({userId: user._id}, process.env.JWT_SECTRET);
+        res.json({user, token});
+    }) (req, res, next);
+};
+
+
+
+//Get function for all Owners.................................................................................
+const getOwners  = (req,res)  => {
+    //using the the 'ownerModel' to find all owners 
+    ownerModel.find()                
+
+    .then(owners  => {
+        //if query is successful, return JSON array of the owners               
         res.json(owners)
     })
-    .catch(err  => {                //if an error occurs, log the error msg. and send the error to the client
+    .catch(err  => { 
+        //if an error occurs, log the error msg. and send the error to the client               
         console.log(err)
         res.send(err)
     })
 }
 
-//POST USERs.....................................................................................
+//Post Owner.....................................................................................
 const postOwner = (req,res) => {
     const owner = req.body           //extract the book object from the request body
     owner.createeAt = new Date()  //set the lastUpdateAt property of the book to the current date
@@ -28,7 +70,7 @@ const postOwner = (req,res) => {
     })
 }
 
-//GET USERs by IDs..............................................................................
+//Get owner by ID..............................................................................
 const getOwnerById = (req,res)  => {
     const id = req.params.id        //get the Id from the URL parameters
     ownerModel.findById(id)          //use the bookModel to find a book by its Id
@@ -41,7 +83,7 @@ const getOwnerById = (req,res)  => {
     })
 }
 
-//DELETE by IDs.................................................................................
+//Delete owner by ID.................................................................................
 const deleteOwnerById = (req,res)  => {
     const id = req.params.id                //get the id of the book to delete from the request parameters
     ownerModel.findByIdAndRemove(id)         //use the findByIdAndRemove method on the bookModel to delete the book.
@@ -54,7 +96,7 @@ const deleteOwnerById = (req,res)  => {
     })
 }
 
-//UPDATE by IDs..................................................................................
+//Update owner by ID..................................................................................
 const updateOwnerById = (req,res) => {
     const id = req.params.id                //get the id from the URL parameters
     const Owner = req.body                   //get the updated book data from the request body
@@ -73,6 +115,8 @@ const updateOwnerById = (req,res) => {
 module.exports = {
     getOwners,
     getOwnerById,
+    signup,
+    login,
     postOwner,
     deleteOwnerById,
     updateOwnerById

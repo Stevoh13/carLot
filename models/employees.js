@@ -13,15 +13,35 @@ const EmployeesSchema = new Schema({
         required: true
     },
 
+    hireDate: {
+        type: Date,
+        required: true
+    },
+
     email: {
         type: 'String',
         required: true,
-        required: ['Must consist of letters and at least a number']
+        required: ['Must consist of letters and at least a number'],
     },
 
     gender: {
         type: 'String',
         required: true
+    },
+
+    salary: {
+        type: Number
+    },
+
+    hireDate: {
+        type: Date,
+        required: true
+    },
+
+    role: {
+        type: String,
+        enum: ['salesperson', 'manager', 'security', 'admin'],
+        default: 'salesperson'
     },
 
     race: {

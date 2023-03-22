@@ -23,6 +23,11 @@ const CarsSchema = new Schema({
         required: true
     },
 
+    imgUrl: {
+        type: 'String',
+        required: true
+    },
+
     color: {
         type: 'String',
         required: true
@@ -36,6 +41,11 @@ const CarsSchema = new Schema({
     bodyStyle: {
         type: 'String',
         required: true
+    },
+
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'owners'
     },
 
     createAt: {

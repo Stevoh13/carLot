@@ -1,0 +1,131 @@
+.main{
+    width: 100%;
+    background: url(https://images.unsplash.com/photo-1592891056695-735aa621eaf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
+}
+
+.menu{
+    width: 400px;
+    float: left;
+    height: 70px;
+}
+
+ul{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 27px;
+    font-size: 20px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: orange;
+}
+
+.navbar{
+    width: 120px;
+    height: 75px;
+    margin: auto;
+}
+
+.wrapper{
+    width: 250px;
+    height: 400px;
+    padding: 25px;
+    margin: auto;
+    margin-top: 30px;
+    position: -20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8)50%, rgba(0,0,0,0.8)50%);
+    border-radius: 10px;
+    text-align: center;
+}
+
+h1{
+        width: 200px;
+        font-family: sans-serif;
+        text-align: center;
+        color: orange;
+        font-size: 22px;
+        background-color: white;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        padding: 8px;
+        margin-left: 15px;
+}
+
+form input{
+    width: 200px;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background: transparent;
+    color: white;
+}
+
+form input:focus{
+    outline: none;
+}
+
+::placeholder{
+    color: white;
+    font-family: Arial;
+}
+
+button{
+    width: 200px;
+    height: 30px;
+    background: orange;
+    border: none;
+    margin-top: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: 0.4s ease;
+}
+
+button a{
+    text-decoration: none;
+}
+
+button:hover{
+    background-color: white;
+    color: orange;
+}
+
+.member{
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+    height: 50px;
+}
+.member a{
+    color: orange;
+    text-decoration: none;
+}
+label{
+    color: white;
+}
+label a{
+    text-decoration: none;
+    color: orange;
+    font-style: italic;
+}
